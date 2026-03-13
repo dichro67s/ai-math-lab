@@ -36,7 +36,13 @@ img { max-width: 100%; display: block; }
 }
 nav { display:flex; align-items:center; justify-content:space-between; min-height:72px; gap:20px; }
 .brand { display:flex; align-items:center; gap:14px; font-weight:700; letter-spacing:0.01em; }
-.brand img { width:42px; height:42px; object-fit:contain; border-radius:10px; }
+/* .brand img { width:42px; height:42px; object-fit:contain; border-radius:10px; } */
+.brand img {
+    height:70px;
+    width:auto;
+    object-fit:contain;
+    border-radius:10px;
+}
 .brand-text { display:grid; gap:1px; line-height:1.1; }
 .brand-text small, .page-subtitle { color: var(--muted); font-size:0.76rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; }
 .nav-links { display:flex; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:0.95rem; }
