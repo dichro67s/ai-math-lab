@@ -50,7 +50,8 @@ nav { display:flex; align-items:center; justify-content:space-between; min-heigh
 .hero { padding:84px 0 56px; }
 .hero-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:28px; align-items:stretch; }
 .hero-card, .panel { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
-.hero-card { padding:42px; position:relative; overflow:hidden; }
+/* .hero-card { padding:42px; position:relative; overflow:hidden; } */
+.hero-card { padding:70px; position:relative; overflow:hidden; }
 .hero-card::before {
   content:""; position:absolute; right:-40px; top:-40px; width:220px; height:220px; border-radius:50%;
   background: radial-gradient(circle, rgba(59,130,246,0.22), transparent 68%); pointer-events:none;
@@ -103,7 +104,8 @@ code.inline { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monosp
 }
 @media (max-width: 640px) {
   .container { width: min(var(--max), calc(100% - 24px)); }
-  .hero { padding-top:42px; }
+  /* .hero { padding-top:42px; } */
+  .hero { padding-top:70px; }
   .hero-card, .panel, .mini-panel, .page-hero-box { padding:20px; }
   .nav-links { gap:12px; font-size:0.92rem; }
 }
