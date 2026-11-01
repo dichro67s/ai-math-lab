@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>논문 — SNU AI Mathematics Lab</title>
+  <meta name="description" content="SNU AI Mathematics Lab의 논문." />
+  <link rel="alternate" hreflang="en" href="../../publications/" />
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a class="brand" href="../../ko/index.html" aria-label="SNU AI Mathematics Lab home">
+          <img src="../../assets/img/logo.png" alt="SNU AI Mathematics Lab logo" />
+          <div class="brand-text">
+            <span>SNU AI Mathematics Lab</span>
+            <small>서울대학교</small>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="../../ko/index.html#about">소개</a>
+          <a href="../../ko/index.html#research">연구</a>
+          <a href="../../ko/people/">구성원</a>
+          <a href="../../ko/publications/" aria-current="page">논문</a>
+          <a href="../../ko/projects/">프로젝트</a>
+          <a href="../../ko/benchmarks/">벤치마크</a>
+          <a href="../../ko/leaderboard/">리더보드</a>
+          <a href="../../ko/news/">소식</a>
+          <a class="lang-switch" href="../../publications/" hreflang="en">English</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-box">
+        <div class="eyebrow">Publications</div>
+        <h1 style="max-width:none; font-size:clamp(2rem,3vw,3.4rem);">논문</h1>
+        <p>연구실의 논문입니다. 연구실 구성원은 굵게 표시했습니다.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container stack">
+      <div class="panel">
+        <h3>2026</h3>
+        <div class="pub">
+          <div class="pub-title">ShadowBench: Toward Reliable Automatic Evaluation of Semantic Alignment in Autoformalization</div>
+          <div class="pub-authors"><strong>Hojae Han</strong>*, <strong>Jongyoon Kim</strong>*, <strong>Sanghyeok Park</strong>*, <strong>Dongwook Cheon</strong>, <strong>Yeachan Park</strong>, <strong>Myeong Jae Jeon</strong>, <strong>Sunjong Choe</strong>, Soonho Kong, Wonseok Hur, Seung-won Hwang†, <strong>Donghoon Hyeon</strong>†</div>
+          <div class="pub-venue"><em>EMNLP 2026</em> · arXiv:2608.29270 · * 공동 제1저자, † 교신저자</div>
+          <p style="margin:6px 0 0;">숨겨진 보조 정리(shadow)와의 양방향 함의를 Lean으로 검사해 형식 명제를 채점하는 SA-Pass와, 대학원~연구 수준 Lean&nbsp;4 문제 178개로 이루어진 ShadowBench를 제안합니다. SA-Pass는 전문가 판정과 98.8% 일치하며, 논문에서 가장 좋은 시스템은 61.8%를 컴파일하지만 SA-Pass는 11.2%입니다.</p>
+          <div class="pub-links">
+            <a class="badge closed" href="https://arxiv.org/abs/2608.29270">arXiv</a>
+            <a class="badge closed" href="https://github.com/ldilab/shadowbench">Code</a>
+            <a class="badge closed" href="https://huggingface.co/datasets/DicoTiar/ShadowBench">Dataset</a>
+            <a class="badge closed" href="https://ldilab.github.io/shadowbench-leaderboard/">Leaderboard</a>
+          </div>
+        </div>
+        <div class="pub">
+          <div class="pub-title">Formalizing Faugère's F<sub>4</sub> Algorithm in Lean&nbsp;4</div>
+          <div class="pub-authors"><strong>Dongwook Cheon</strong></div>
+          <div class="pub-venue"><em>원고</em> · 2026년 10월</div>
+          <p style="margin:6px 0 0;">Faugère의 F<sub>4</sub> 알고리즘을 Mathlib의 다변수 다항식 위에서 Lean&nbsp;4로 형식화했습니다. 유한개 변수의 체 위 다항식들로 이루어진, 0이 아닌 다항식의 유한집합 \(F\)에 대해 이 절차는 종료하며 \(\langle G\rangle = \langle F\rangle\)이고 \(\langle \mathrm{LM}(g) : g \in G\rangle = \mathrm{in}_\prec(\langle F\rangle)\)인 유한집합 \(G\)를 반환합니다. 즉 \(G\)는 Gröbner basis입니다(정리 <code class="inline">F4_groebner</code>). Symbolic preprocessing과 Gaussian elimination을 다항식의 유한집합 위에서 직접 수행하고, 종료성은 사전식 well-founded relation으로 보입니다. 검사한 결과들은 Lean의 표준 axiom 세 개만 사용하며 <code class="inline">sorry</code>가 없습니다.</p>
+          <div class="pub-links">
+            <a class="badge closed" href="../../papers/cheon-2026-f4-lean4.pdf">PDF</a>
+            <a class="badge closed" href="https://github.com/dongwook0826/FaugereF4">Code</a>
+          </div>
+        </div>
+        <p class="note" style="margin-top:14px;">BibTeX는 <a href="../../publications/">영문 페이지</a>에 있습니다.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-box">
+        <div>
+          <strong>SNU AI Mathematics Lab</strong>
+          <div class="footer-note">서울대학교 수리과학부 · 업데이트 2026-11-02</div>
+        </div>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench 논문</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../../ko/leaderboard/">리더보드</a>
+          <a href="https://dichro67s.github.io/lean4all/">Lean4All</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

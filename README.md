@@ -16,9 +16,22 @@ Live: https://dichro67s.github.io/ai-math-lab/
 - `news/`: announcements, newest first (the three latest also appear on the home page)
 - `assets/`: stylesheet, images, favicon
 
-The pages are plain HTML; edit them directly. The header and footer are repeated on
-every page, so change them on all pages at once. Paths are relative, and `.nojekyll`
-keeps GitHub Pages from processing the files.
+English pages live at the root and Korean pages under `ko/` (same layout). Every
+page has an English / 한국어 switch in the navigation bar.
+
+## Editing content
+The HTML pages are generated. Do not edit them by hand; edit the sources in
+`tools/site/` and rebuild:
+
+- `pages_en.py`, `pages_ko.py`: page text (news items are the `NEWS` list at the top)
+- `people.json`: members (`name_ko`, `role_ko`, `links_ko` for the Korean page)
+- `ag_block.html`, `ag_block_ko.html`: the worked example on the Benchmarks page
+- `common.py`: navigation, footer, shared links, the "Updated" date
+
+```bash
+python3 tools/site/build_site.py          # rebuild every page in both languages
+python3 tools/update_leaderboard.py       # then refill the leaderboard tables
+```
 
 ## Updating the leaderboard
 The leaderboard table mirrors the public ShadowBench leaderboard
@@ -29,7 +42,7 @@ python3 tools/update_leaderboard.py
 ```
 
 This fetches the leaderboard data and rewrites only the table rows, the system count
-and the "as of" date in `leaderboard/index.html`. If a headline number changes, also
+and the "as of" date in `leaderboard/index.html` and `ko/leaderboard/index.html`. If a headline number changes, also
 update the home page and the news page by hand.
 
 ## Publishing

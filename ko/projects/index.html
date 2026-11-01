@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>프로젝트 — SNU AI Mathematics Lab</title>
+  <meta name="description" content="SNU AI Mathematics Lab의 연구 프로젝트." />
+  <link rel="alternate" hreflang="en" href="../../projects/" />
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a class="brand" href="../../ko/index.html" aria-label="SNU AI Mathematics Lab home">
+          <img src="../../assets/img/logo.png" alt="SNU AI Mathematics Lab logo" />
+          <div class="brand-text">
+            <span>SNU AI Mathematics Lab</span>
+            <small>서울대학교</small>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="../../ko/index.html#about">소개</a>
+          <a href="../../ko/index.html#research">연구</a>
+          <a href="../../ko/people/">구성원</a>
+          <a href="../../ko/publications/">논문</a>
+          <a href="../../ko/projects/" aria-current="page">프로젝트</a>
+          <a href="../../ko/benchmarks/">벤치마크</a>
+          <a href="../../ko/leaderboard/">리더보드</a>
+          <a href="../../ko/news/">소식</a>
+          <a class="lang-switch" href="../../projects/" hreflang="en">English</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-box">
+        <div class="eyebrow">Projects</div>
+        <h1 style="max-width:none; font-size:clamp(2rem,3vw,3.4rem);">프로젝트</h1>
+        <p>지금 만들고 있는 것들입니다. 발표된 연구는 논문, 코드, 데이터로 연결됩니다.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container"><div class="feature-grid">
+      <article class="panel feature">
+        <span class="badge open">발표</span>
+        <h3>ShadowBench와 SA-Pass</h3>
+        <p>Lean이 양방향으로 검증하는 숨겨진 shadow 정리를 이용해, 형식 명제가 정리의 뜻을 정확히 담고 있는지 검사하는 벤치마크이자 평가 지표입니다.</p>
+        <div class="member-links"><a href="../benchmarks/#shadowbench">벤치마크</a><a href="https://arxiv.org/abs/2608.29270">논문</a><a href="https://github.com/ldilab/shadowbench">Code</a></div>
+      </article>
+      <article class="panel feature">
+        <span class="badge open">운영 중</span>
+        <h3>Lean4All</h3>
+        <p>AI agent로 수학을 Lean&nbsp;4로 형식화하는 오픈 플랫폼입니다. 참여자는 자신의 AI agent로 mission의 정리들을 증명하고, 작업은 GitHub를 통해 이루어지며, 모든 증명은 Lean이 검사합니다. Blueprint는 형식화된 정의와 보조정리들이 서로 어떻게 의존하는지 보여 줍니다. Mission은 arXiv 논문에서 몇 단계 만에, 또는 업로드한 파일로 만들 수 있습니다. Lean4All은 Prove2Me에서 영감을 받은 독립 플랫폼이며 한국어 인터페이스를 제공합니다.</p>
+        <div class="member-links"><a href="https://dichro67s.github.io/lean4all/">사이트 열기</a><a href="https://github.com/dichro67s/lean4all">Code</a></div>
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">진행 중</span>
+        <h3>ABM: Autoformalization Benchmark</h3>
+        <p>1,200개가 넘는 Lean&nbsp;4 문제로 이루어진 내부 컬렉션입니다. 그중 약 370개는 연구실이 교재, 경시대회, 최신 arXiv 논문으로부터 직접 만들었습니다.</p>
+        <div class="member-links"><a href="../benchmarks/#abm">자세히</a></div>
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">진행 중</span>
+        <h3>LIFT@Seoul 평가 서버</h3>
+        <p>모델과 agent를 샌드박스에서 두 단계로 평가합니다. 먼저 Lean으로 컴파일하고, 이어서 hidden forward·backward 검사를 실행해 분야별, 난이도별로 보고합니다.</p>
+        <div class="member-links"><a href="../benchmarks/#lift">자세히</a></div>
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">진행 중</span>
+        <h3>참조 없는 alignment 판정</h3>
+        <p>실제 형식화에는 비교할 참조가 없는 경우가 대부분입니다. 비형식 명제와 형식 명제만으로 판정하는 judge를 만듭니다. 각 명제가 다루는 대상과 주장을 추출해 서로 대응시키고, 둘이 다르면 그 차이를 드러내는 구체적인 예를 찾습니다.</p>
+        
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">진행 중</span>
+        <h3>증명과 코드를 위한 shadow</h3>
+        <p>Shadow 검사를 명제 너머로 확장합니다. 증명에 대해서는 형식 증명이 비형식 증명이 주장하는 단계들을 실제로 확립하는지, 프로그램에 대해서는 두 프로그램이 같게 동작하는지를 검사합니다.</p>
+        
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">진행 중</span>
+        <h3>성장하는 라이브러리의 형식화</h3>
+        <p>각 명제가 앞선 명제들 위에 쌓이는 Stacks Project에서 형식화 대상을 가져와, 라이브러리가 커져 갈 때의 autoformalization을 시험합니다.</p>
+        
+      </article>
+    </div></div>
+  </section>
+</main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-box">
+        <div>
+          <strong>SNU AI Mathematics Lab</strong>
+          <div class="footer-note">서울대학교 수리과학부 · 업데이트 2026-11-02</div>
+        </div>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench 논문</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../../ko/leaderboard/">리더보드</a>
+          <a href="https://dichro67s.github.io/lean4all/">Lean4All</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

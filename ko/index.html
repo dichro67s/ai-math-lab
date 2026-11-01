@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNU AI Mathematics Lab</title>
+  <meta name="description" content="SNU AI Mathematics Lab: autoformalization, Lean 4 벤치마크, AI가 생성한 수학의 의미 검증." />
+  <link rel="alternate" hreflang="en" href="../index.html" />
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a class="brand" href="../ko/index.html" aria-label="SNU AI Mathematics Lab home">
+          <img src="../assets/img/logo.png" class="logo" alt="SNU AI Mathematics Lab logo" />
+          <div class="brand-text">
+            <span>SNU AI Mathematics Lab</span>
+            <small>서울대학교</small>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="../ko/index.html#about">소개</a>
+          <a href="../ko/index.html#research">연구</a>
+          <a href="../ko/people/">구성원</a>
+          <a href="../ko/publications/">논문</a>
+          <a href="../ko/projects/">프로젝트</a>
+          <a href="../ko/benchmarks/">벤치마크</a>
+          <a href="../ko/leaderboard/">리더보드</a>
+          <a href="../ko/news/">소식</a>
+          <a class="lang-switch" href="../index.html" hreflang="en">English</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">AI × Mathematics</div>
+          <h1>SNU AI Mathematics Lab</h1>
+          <p>
+            우리는 수학을 읽고, 형식화하고, 검증하는 AI 시스템을 만듭니다. 핵심 주제는
+            autoformalization, 즉 사람이 쓴 수학을 컴퓨터가 모든 단계를 검증할 수 있는 언어인
+            Lean&nbsp;4로 옮기는 일입니다. 그리고 그 번역이 수학자가 의도한 내용을 정확히 담고 있는지를
+            엄밀하게 측정합니다.
+          </p>
+          <p style="margin-top: 14px;">
+            이를 위한 벤치마크, checker, 리더보드를 만들고, 수학 문제를 풀고 생성하고 검증하는
+            시스템을 연구합니다.
+          </p>
+          <div class="korean-name">서울대학교 수리과학부</div>
+          <div class="hero-actions">
+            <a class="btn primary" href="benchmarks/">ShadowBench</a>
+            <a class="btn secondary" href="leaderboard/">리더보드</a>
+            <a class="btn secondary" href="people/">구성원 소개</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="mini-panel metric">
+            <span>New · EMNLP 2026</span>
+            <strong>ShadowBench</strong>
+            <span>형식 명제가 컴파일되는지만이 아니라 정리의 내용을 제대로 담고 있는지를 검사하는 Lean&nbsp;4 벤치마크입니다. <a class="text-link" href="https://arxiv.org/abs/2608.29270">논문 보기</a></span>
+          </div>
+          <div class="mini-panel">
+            <h3 style="margin-bottom: 8px;">컴파일은 이해가 아니다</h3>
+            <p style="margin: 0;">최신 시스템은 우리 문제의 90% 이상에서 컴파일되는 Lean 코드를 만들지만, 의도한 정리를 정확히 진술하는 비율은 최대 18.5%입니다.</p>
+          </div>
+          <div class="mini-panel">
+            <h3 style="margin-bottom: 8px;">연구 책임자</h3>
+            <p style="margin: 0;">현동훈 (David Donghoon Hyeon), 서울대학교 수리과학부 교수.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="stat-grid">
+          <div class="stat"><strong>178</strong><span>ShadowBench의 대학원~연구 수준 문제</span></div>
+          <div class="stat"><strong>706</strong><span>Lean으로 검증되는 hidden shadow 정리</span></div>
+          <div class="stat"><strong>98.8%</strong><span>SA-Pass와 전문가 판정의 일치율</span></div>
+          <div class="stat"><strong>41</strong><span>공개 리더보드에 오른 시스템</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">주요 성과</div>
+            <h2>현재 연구</h2>
+          </div>
+          <p>지금 공개되어 있는 벤치마크, checker, 결과입니다.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="panel feature">
+            <span class="tag">Benchmark · EMNLP 2026</span>
+            <h3>ShadowBench와 SA-Pass</h3>
+            <p>각 문제에는 shadow라 부르는 숨겨진 보조 정리들이 있습니다. 생성된 명제가 모든 shadow를 함의하고, shadow들을 모두 합하면 다시 그 명제가 나온다는 것을 Lean이 증명할 때에만 점수를 받습니다.</p>
+            <a class="more" href="benchmarks/#shadowbench">작동 방식 →</a>
+          </article>
+          <article class="panel feature">
+            <span class="tag">Leaderboard</span>
+            <h3>41개 시스템 평가</h3>
+            <p>Lean 도구를 쓰거나 쓰지 않는 agentic 코딩 어시스턴트, frontier 모델과 open 모델, Lean 특화 prover를 모두 같은 178문제로 평가했습니다.</p>
+            <a class="more" href="leaderboard/">결과 보기 →</a>
+          </article>
+          <article class="panel feature">
+            <span class="tag">Challenge · ICML 2026</span>
+            <h3>AI for Math, Track 4</h3>
+            <p>ShadowBench의 초기 버전이 ICML 2026 AI for Math Challenge Track 4의 벤치마크로 쓰였습니다. 약 117개 팀이 등록했습니다.</p>
+            <a class="more" href="news/">소식 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">소개</div>
+            <h2>AI와 수학이 만나는 연구</h2>
+          </div>
+          <p>SNU AI Mathematics Lab은 기계가 수학 지식을 형식화하고, 풀고, 생성하고, 검증하는 방법을 연구합니다.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="panel">
+            <h3>연구실 소개</h3>
+            <p>
+              대규모 언어 모델은 이제 컴파일되는 Lean 코드를 쓸 수 있지만, 컴파일되는 명제도 틀린 내용을 말할 수
+              있습니다. 가정이 빠지거나, 결론이 약해지거나, 계산해야 할 값을 가정으로 두는 식입니다. 우리는 이
+              간극을 측정 가능하게 만듭니다. 대학원 교재와 최신 연구 논문에서 벤치마크 문제를 만들고, Lean이 직접
+              검증하는 hidden checker를 구축하며, 공개 평가를 운영하고, 참조 형식화가 없을 때에도 형식화가
+              충실한지 판정하는 방법을 개발합니다.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>바로 가기</h3>
+            <ul class="clean-list">
+              <li><a class="text-link" href="publications/">논문</a></li>
+              <li><a class="text-link" href="benchmarks/">ShadowBench, ABM, LIFT@Seoul</a></li>
+              <li><a class="text-link" href="leaderboard/">리더보드</a></li>
+              <li><a class="text-link" href="https://huggingface.co/datasets/DicoTiar/ShadowBench">Hugging Face 데이터셋</a></li>
+              <li><a class="text-link" href="https://dichro67s.github.io/lean4all/">Lean4All: AI agent 기반 오픈 형식화 플랫폼</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">연구</div>
+            <h2>주요 연구 분야</h2>
+          </div>
+          <p>여섯 분야를 하나의 질문이 잇습니다: AI 시스템이 수학을 제대로 했는지 어떻게 알 수 있는가?</p>
+        </div>
+
+        <div class="research-grid">
+          <article class="panel research-card"><span class="tag">01</span><h3>Autoformalization</h3><p>교재와 연구 수준의 수학을 Lean&nbsp;4 명제와 증명으로 옮깁니다. 대학원 대수, 해석, 위상, 대수기하부터 최신 arXiv 논문까지 다룹니다.</p></article>
+          <article class="panel research-card"><span class="tag">02</span><h3>벤치마크와 리더보드</h3><p>ShadowBench, 더 큰 내부 컬렉션인 ABM, 샌드박스 평가 서버 LIFT@Seoul, 그리고 공개 리더보드.</p></article>
+          <article class="panel research-card"><span class="tag">03</span><h3>Semantic Alignment와 검증</h3><p>형식 명제가 비형식 명제와 같은 뜻인지 판정합니다. 양방향 hidden shadow 검사와, 참조 형식화가 없을 때의 alignment 판정을 연구합니다.</p></article>
+          <article class="panel research-card"><span class="tag">04</span><h3>자동 문제 풀이</h3><p>Lean 코드를 쓰고, 컴파일하고, 고치는 과정을 반복하는 agentic 시스템과, 그런 시스템이 여전히 의도한 정리를 진술하지 못하는 지점을 연구합니다.</p></article>
+          <article class="panel research-card"><span class="tag">05</span><h3>자동 문제 생성</h3><p>논문과 교재를 참조 Lean 파일과 checker를 갖춘 벤치마크 문제로 바꿉니다. 모델이 초안을 쓰고 수학자가 검토합니다.</p></article>
+          <article class="panel research-card"><span class="tag">06</span><h3>정리 생성</h3><p>의미 있는 추측, 보조정리, 정리를 proof assistant가 검사할 수 있는 형태로 제안하는 모델을 탐구합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">소식</div>
+            <h2>최신 소식</h2>
+          </div>
+          <p><a class="text-link" href="news/">전체 소식 →</a></p>
+        </div>
+        <div class="panel">
+          <ul class="news-list">
+            <li><time>2026-11</time><span><strong><a href="https://dichro67s.github.io/lean4all/">Lean4All</a></strong>을 공개했습니다. AI agent로 수학을 Lean&nbsp;4로 형식화하는 오픈 플랫폼으로, GitHub를 통해 운영되고 blueprint를 제공하며, arXiv 논문이나 업로드한 파일로 mission을 만들 수 있습니다. 모든 증명은 Lean이 검사합니다.</span></li>
+            <li><time>2026-10-26</time><span><strong>새 원고:</strong> Dongwook Cheon, <a href="publications/">Formalizing Faugère's F<sub>4</sub> Algorithm in Lean&nbsp;4</a>. 형식화된 F<sub>4</sub> 절차가 종료하며 입력 ideal의 Gröbner basis를 반환함을 Lean으로 증명했습니다. <a href="https://github.com/dongwook0826/FaugereF4">Code</a>.</span></li>
+            <li><time>2026-10-20</time><span><strong>리더보드 업데이트.</strong> ShadowBench에 새 agentic 결과가 추가되었습니다. Numina-Lean-Agent를 쓴 Codex (GPT-6.1 Sol)가 SA-Pass 18.5%로 현재 최고입니다. Numina-Lean-Agent를 쓴 Claude Code (Opus 5.5)는 출력의 93.8%가 컴파일되지만 SA-Pass는 16.9%에 그칩니다.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-box">
+        <div>
+          <strong>SNU AI Mathematics Lab</strong>
+          <div class="footer-note">서울대학교 수리과학부 · 업데이트 2026-11-02</div>
+        </div>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench 논문</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../ko/leaderboard/">리더보드</a>
+          <a href="https://dichro67s.github.io/lean4all/">Lean4All</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

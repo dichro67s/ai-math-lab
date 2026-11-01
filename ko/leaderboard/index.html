@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>리더보드 — SNU AI Mathematics Lab</title>
+  <meta name="description" content="ShadowBench 리더보드: 178문제에 대한 41개 시스템의 compile rate와 SA-Pass." />
+  <link rel="alternate" hreflang="en" href="../../leaderboard/" />
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a class="brand" href="../../ko/index.html" aria-label="SNU AI Mathematics Lab home">
+          <img src="../../assets/img/logo.png" alt="SNU AI Mathematics Lab logo" />
+          <div class="brand-text">
+            <span>SNU AI Mathematics Lab</span>
+            <small>서울대학교</small>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="../../ko/index.html#about">소개</a>
+          <a href="../../ko/index.html#research">연구</a>
+          <a href="../../ko/people/">구성원</a>
+          <a href="../../ko/publications/">논문</a>
+          <a href="../../ko/projects/">프로젝트</a>
+          <a href="../../ko/benchmarks/">벤치마크</a>
+          <a href="../../ko/leaderboard/" aria-current="page">리더보드</a>
+          <a href="../../ko/news/">소식</a>
+          <a class="lang-switch" href="../../leaderboard/" hreflang="en">English</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-box">
+        <div class="eyebrow">Leaderboard</div>
+        <h1 style="max-width:none; font-size:clamp(2rem,3vw,3.4rem);">ShadowBench 리더보드</h1>
+        <p>ShadowBench test split 178문제에 대한 결과로, SA-Pass 순으로 정렬했습니다. <a href="https://ldilab.github.io/shadowbench-leaderboard/">공개 리더보드</a>의 데이터를 가져왔으며, 기준일은 <!-- LB:ASOF:START -->2026-11-02<!-- LB:ASOF:END -->입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container stack">
+      <div class="feature-grid">
+        <div class="panel"><h3>Compile</h3><p>생성된 Lean 코드가 <code class="inline">sorry</code> 없이 단독으로 컴파일되는 문제의 비율.</p></div>
+        <div class="panel"><h3>SA-Pass<sub>soft</sub></h3><p>부분 점수: forward 검사 통과 비율에 절반, backward 검사에 절반. 컴파일되지 않은 출력은 0점입니다.</p></div>
+        <div class="panel"><h3>SA-Pass</h3><p>컴파일되고 모든 forward·backward 검사를 통과한 문제의 비율. 즉 명제가 정리의 뜻을 정확히 담은 경우입니다.</p></div>
+      </div>
+
+      <div class="panel table-wrap">
+        <table>
+          <thead><tr><th class="num">#</th><th>시스템</th><th>유형</th><th class="num">Compile</th><th class="num">SA-Pass<sub>soft</sub></th><th class="num">SA-Pass</th><th class="num">L3 SA-Pass</th><th>출처</th></tr></thead>
+          <tbody><!-- LB:ROWS:START -->
+          <tr class="top"><td class="num">1</td><td>Codex (GPT-6.1 Sol) + Numina</td><td>에이전트</td><td class="num">91.0</td><td class="num">29.2</td><td class="num"><strong>18.5</strong></td><td class="num">7.7</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Codex with GPT-6.1 Sol, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">논문 이후 · 2026-10-20</span></td></tr>
+          <tr class="top"><td class="num">2</td><td>Codex (GPT-6 Luna) + Numina</td><td>에이전트</td><td class="num">79.2</td><td class="num">28.1</td><td class="num"><strong>18.0</strong></td><td class="num">7.7</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Codex with GPT-6 Luna, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">논문 이후 · 2026-10-20</span></td></tr>
+          <tr class="top"><td class="num">3</td><td>Claude Code (Opus 5.5) + Numina</td><td>에이전트</td><td class="num">93.8</td><td class="num">28.1</td><td class="num"><strong>16.9</strong></td><td class="num">15.4</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Claude Code with Claude Opus 5.5, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">논문 이후 · 2026-10-20</span></td></tr>
+          <tr><td class="num">4</td><td>Claude Code (Sonnet 5.5) + Numina</td><td>에이전트</td><td class="num">91.0</td><td class="num">25.8</td><td class="num"><strong>15.2</strong></td><td class="num">15.4</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Claude Code with Claude Sonnet 5.5, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">논문 이후 · 2026-10-20</span></td></tr>
+          <tr><td class="num">5</td><td>Claude Code (Opus 4.8) + Numina</td><td>에이전트</td><td class="num">61.8</td><td class="num">18.3</td><td class="num"><strong>11.2</strong></td><td class="num">7.7</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">6</td><td>Claude Code (Opus 5.5)</td><td>에이전트</td><td class="num">48.3</td><td class="num">16.3</td><td class="num"><strong>10.7</strong></td><td class="num">7.7</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Claude Code with Claude Opus 5.5, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">논문 이후 · 2026-10-20</span></td></tr>
+          <tr><td class="num">7</td><td>Codex (GPT-5.4) + Numina</td><td>에이전트</td><td class="num">55.6</td><td class="num">16.9</td><td class="num"><strong>10.1</strong></td><td class="num">7.7</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">8</td><td>Claude Code (Opus 4.6) + Numina</td><td>에이전트</td><td class="num">47.2</td><td class="num">15.7</td><td class="num"><strong>9.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">9</td><td>Claude Code (Sonnet 5.5)</td><td>에이전트</td><td class="num">29.8</td><td class="num">8.7</td><td class="num"><strong>4.5</strong></td><td class="num">7.7</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Claude Code with Claude Sonnet 5.5, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">논문 이후 · 2026-10-20</span></td></tr>
+          <tr><td class="num">10</td><td>Codex (GPT-6.1 Sol)</td><td>에이전트</td><td class="num">33.7</td><td class="num">8.1</td><td class="num"><strong>2.8</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Codex with GPT-6.1 Sol, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">논문 이후 · 2026-10-20</span></td></tr>
+          <tr><td class="num">11</td><td>Claude Code (Opus 4.8)</td><td>에이전트</td><td class="num">20.2</td><td class="num">5.1</td><td class="num"><strong>2.8</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">12</td><td>Codex (GPT-6 Luna)</td><td>에이전트</td><td class="num">32.0</td><td class="num">5.3</td><td class="num"><strong>2.2</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Codex with GPT-6 Luna, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">논문 이후 · 2026-10-20</span></td></tr>
+          <tr><td class="num">13</td><td>Codex (GPT-5.4)</td><td>에이전트</td><td class="num">16.9</td><td class="num">3.4</td><td class="num"><strong>2.2</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">14</td><td>Claude Fable 5.1</td><td>모델 · 비공개</td><td class="num">28.7</td><td class="num">7.9</td><td class="num"><strong>1.1</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">논문 이후 · 2026-10-14</span></td></tr>
+          <tr><td class="num">15</td><td>GPT-6 Astra</td><td>모델 · 비공개</td><td class="num">26.4</td><td class="num">6.8</td><td class="num"><strong>0.6</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">논문 이후 · 2026-10-14</span></td></tr>
+          <tr><td class="num">16</td><td>Claude Code (Qwen3 235B) + Numina</td><td>에이전트</td><td class="num">6.7</td><td class="num">0.8</td><td class="num"><strong>0.6</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">17</td><td>Claude Code (Qwen3 235B)</td><td>에이전트</td><td class="num">5.1</td><td class="num">0.8</td><td class="num"><strong>0.6</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">18</td><td>GPT-6 Luna</td><td>모델 · 비공개</td><td class="num">23.6</td><td class="num">5.2</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">논문 이후 · 2026-10-14</span></td></tr>
+          <tr><td class="num">19</td><td>Claude Opus 5.5</td><td>모델 · 비공개</td><td class="num">20.2</td><td class="num">5.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">논문 이후 · 2026-10-14</span></td></tr>
+          <tr><td class="num">20</td><td>GPT-6 Sol</td><td>모델 · 비공개</td><td class="num">38.2</td><td class="num">4.8</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">논문 이후 · 2026-10-14</span></td></tr>
+          <tr><td class="num">21</td><td>Claude Sonnet 5.5</td><td>모델 · 비공개</td><td class="num">9.6</td><td class="num">1.9</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">논문 이후 · 2026-10-14</span></td></tr>
+          <tr><td class="num">22</td><td>Claude Code (Opus 4.6)</td><td>에이전트</td><td class="num">4.5</td><td class="num">1.4</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">23</td><td>GPT-5.4 mini</td><td>모델 · 비공개</td><td class="num">9.0</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">24</td><td>GPT-5.4</td><td>모델 · 비공개</td><td class="num">3.4</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">25</td><td>GPT-OSS-20B</td><td>모델 · 공개 가중치</td><td class="num">2.8</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">26</td><td>Claude Haiku 4.5</td><td>모델 · 비공개</td><td class="num">0.6</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">27</td><td>GPT-OSS-120B</td><td>모델 · 공개 가중치</td><td class="num">0.6</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">28</td><td>Gemini 2.5 Flash</td><td>모델 · 비공개</td><td class="num">0.6</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">29</td><td>GPT-5.4 nano</td><td>모델 · 비공개</td><td class="num">6.7</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">30</td><td>Gemini 3.1 Pro</td><td>모델 · 비공개</td><td class="num">1.7</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">31</td><td>Claude Opus 4.6</td><td>모델 · 비공개</td><td class="num">1.1</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">32</td><td>Claude Sonnet 4.6</td><td>모델 · 비공개</td><td class="num">0.6</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">33</td><td>DeepSeek R1 0528</td><td>모델 · 공개 가중치</td><td class="num">0.6</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">34</td><td>Kimina 7B → 8B</td><td>Lean prover</td><td class="num">0.6</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">35</td><td>DeepSeek V3.2</td><td>모델 · 공개 가중치</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">36</td><td>Goedel 8B → 32B</td><td>Lean prover</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">37</td><td>Goedel 8B → 8B</td><td>Lean prover</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">38</td><td>Llama 3.1 70B</td><td>모델 · 공개 가중치</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">39</td><td>Llama 3.1 8B</td><td>모델 · 공개 가중치</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">40</td><td>Qwen3 235B</td><td>모델 · 공개 가중치</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <tr><td class="num">41</td><td>Qwen3-coder</td><td>모델 · 공개 가중치</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">논문</span></td></tr>
+          <!-- LB:ROWS:END --></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <p class="note">모든 값은 같은 178문제에 대한 백분율입니다(시스템 <!-- LB:COUNT:START -->41<!-- LB:COUNT:END -->개). "논문" 행은 <a href="https://arxiv.org/abs/2608.29270">ShadowBench 논문</a>의 Table&nbsp;3입니다. "논문 이후" 행은 같은 문제로 나중에 실행한 결과로, agentic 시스템은 2026-10-20, 직접 프롬프팅은 출력 토큰 최대 128k로 2026-10-14에 실행했습니다(논문은 2k–8k). 이 실행들에서는 한 문제의 기록이 없어 실패로 셉니다. "+ Numina"는 agent가 Numina-Lean-Agent의 Lean 도구를 쓸 수 있었다는 뜻입니다. L3는 연구 수준 문제 13개입니다.</p>
+        <p class="note">시스템을 제출하려면 <a href="https://ldilab.github.io/shadowbench-leaderboard/">공개 리더보드</a>를 이용하세요.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-box">
+        <div>
+          <strong>SNU AI Mathematics Lab</strong>
+          <div class="footer-note">서울대학교 수리과학부 · 업데이트 2026-11-02</div>
+        </div>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench 논문</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../../ko/leaderboard/">리더보드</a>
+          <a href="https://dichro67s.github.io/lean4all/">Lean4All</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

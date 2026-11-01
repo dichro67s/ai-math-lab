@@ -1,0 +1,123 @@
+[
+  {
+    "name": "David Donghoon Hyeon",
+    "lead": true,
+    "photo": "hyeon.jpg",
+    "role": "Lab lead · Professor, Department of Mathematical Sciences, Seoul National University",
+    "links": [
+      [
+        "Homepage",
+        "https://www.math.snu.ac.kr/~hyeon"
+      ]
+    ],
+    "name_ko": "현동훈",
+    "role_ko": "연구 책임자 · 서울대학교 수리과학부 교수",
+    "links_ko": [
+      [
+        "홈페이지",
+        "https://www.math.snu.ac.kr/~hyeon"
+      ]
+    ]
+  },
+  {
+    "name": "Sanghyeok Park",
+    "role": "Dept. of Mathematical Sciences, SNU",
+    "role_ko": "서울대학교 수리과학부"
+  },
+  {
+    "name": "Dongwook Cheon",
+    "role": "Dept. of Mathematical Sciences, SNU",
+    "links": [
+      [
+        "GitHub",
+        "https://github.com/dongwook0826"
+      ],
+      [
+        "Blog",
+        "https://dongwook0826.github.io"
+      ]
+    ],
+    "role_ko": "서울대학교 수리과학부",
+    "links_ko": [
+      [
+        "GitHub",
+        "https://github.com/dongwook0826"
+      ],
+      [
+        "블로그",
+        "https://dongwook0826.github.io"
+      ]
+    ]
+  },
+  {
+    "name": "Sunjong Choe",
+    "role": "Dept. of Mathematical Sciences, SNU",
+    "role_ko": "서울대학교 수리과학부"
+  },
+  {
+    "name": "John Jongyoon Kim",
+    "photo": "kim-jongyoon.jpg",
+    "role": "Integrated M.S./Ph.D. student, Interdisciplinary Program in Artificial Intelligence, SNU",
+    "links": [
+      [
+        "Profile",
+        "https://ldilab.github.io/person/kimjy/"
+      ],
+      [
+        "Scholar",
+        "https://scholar.google.com/citations?user=7TKlQHwAAAAJ"
+      ]
+    ],
+    "name_ko": "김종윤",
+    "role_ko": "서울대학교 협동과정 인공지능전공 석박사통합과정",
+    "links_ko": [
+      [
+        "프로필",
+        "https://ldilab.github.io/person/kimjy/"
+      ],
+      [
+        "Scholar",
+        "https://scholar.google.com/citations?user=7TKlQHwAAAAJ"
+      ]
+    ]
+  },
+  {
+    "name": "Dr. Hojae Han",
+    "photo": "han-hojae.jpg",
+    "role": "Researcher, ETRI · Ph.D., Computer Science and Engineering, SNU (2025)",
+    "name_ko": "한호재",
+    "role_ko": "한국전자통신연구원(ETRI) 연구원 · 서울대학교 컴퓨터공학 박사 (2025)"
+  },
+  {
+    "name": "Myeong Jae Jeon",
+    "role": "Graduate student, Dept. of Mathematics, University of Maryland",
+    "role_ko": "University of Maryland 수학과 대학원생"
+  },
+  {
+    "name": "Prof. Yeachan Park",
+    "photo": "park-yeachan.jpg",
+    "role": "Assistant Professor, Dept. of Mathematics and Statistics, Sejong University",
+    "links": [
+      [
+        "Homepage",
+        "https://yechanp.github.io/site/"
+      ],
+      [
+        "Scholar",
+        "https://scholar.google.com/citations?user=G-EEuLQAAAAJ"
+      ]
+    ],
+    "name_ko": "박예찬",
+    "role_ko": "세종대학교 수학통계학과 조교수",
+    "links_ko": [
+      [
+        "홈페이지",
+        "https://yechanp.github.io/site/"
+      ],
+      [
+        "Scholar",
+        "https://scholar.google.com/citations?user=G-EEuLQAAAAJ"
+      ]
+    ]
+  }
+]

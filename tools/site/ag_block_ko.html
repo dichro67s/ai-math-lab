@@ -1,0 +1,47 @@
+      <div class="panel">
+        <h3>예시: 3차 곡면 위의 27개 직선</h3>
+        <p class="note">채점 방식을 설명하기 위해 이 페이지용으로 만든 예시이며, 벤치마크 문제가 아닙니다.</p>
+        <p><strong>정리 \(T\).</strong> \(k\)를 대수적으로 닫힌 체, \(S \subset \mathbb{P}^3_k\)를 smooth cubic surface라 하자. 그러면 (i) \(S\)는 정확히 27개의 직선을 포함하고, (ii) \(S\) 위의 각 직선은 나머지 26개 중 정확히 10개와 만나며, (iii) 어느 세 점도 한 직선 위에 있지 않고 여섯 점 모두가 한 conic 위에 있지도 않은 \(\mathbb{P}^2(k)\)의 여섯 점에 대해 \(S \cong \operatorname{Bl}_{p_1,\dots,p_6}\mathbb{P}^2_k\)이다.</p>
+        <p><strong>Shadow.</strong> 각 shadow는 가정(\(k\)는 대수적으로 닫힌 체, \(S\)는 smooth cubic surface)을 그대로 두고 결론 하나만 가집니다. \(S_1\): \(S\)는 정확히 27개의 직선을 포함한다. \(S_2\): \(S\) 위의 각 직선은 다른 직선 정확히 10개와 만난다. \(S_3\): \(S\)는 \(k\)-scheme으로서 일반 위치에 있는 여섯 점에서의 \(\mathbb{P}^2_k\)의 blow-up과 동형이다. \(T\)는 각 \(S_i\)를 함의하고 \(S_1 \wedge S_2 \wedge S_3\)는 다시 \(T\)를 주므로, 세 shadow가 의도한 정리를 정확히 결정합니다.</p>
+        <span class="label">충실한 명제의 Lean 스타일 스케치</span>
+        <pre class="code">theorem cubic_surface {k : Type*} [Field k] [IsAlgClosed k]
+    (S : CubicSurface k) (hS : S.Smooth) :
+    S.lines.ncard = 27 ∧
+    (∀ ℓ ∈ S.lines, {m ∈ S.lines | m ≠ ℓ ∧ (ℓ ∩ m).Nonempty}.ncard = 10) ∧
+    ∃ P : SixPointsInGeneralPosition k, Nonempty (S.toScheme ≅ blowUp P)</pre>
+        <p class="note">설명용 스케치입니다. Mathlib에는 아직 cubic surface, 그 위의 직선, blow-up이 정의되어 있지 않습니다.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>후보 명제</th><th class="num">Forward</th><th class="num">Backward</th><th class="num">SA-Pass</th><th class="num">SA-Pass<sub>soft</sub></th></tr></thead>
+            <tbody>
+              <tr><td>① 충실한 명제: 위의 스케치</td><td class="num">3/3</td><td class="num">통과</td><td class="num"><strong>1</strong></td><td class="num">1.00</td></tr>
+              <tr><td>② 가정 누락: <code class="inline">[IsAlgClosed k]</code>를 빼서 모든 체에 대해 주장함</td><td class="num">3/3</td><td class="num">실패</td><td class="num"><strong>0</strong></td><td class="num">0.50</td></tr>
+              <tr><td>③ 잘못된 대상: (iii)을 scheme 동형 <code class="inline">≅</code> 대신 점 집합 사이의 전단사 <code class="inline">≃</code>로 씀</td><td class="num">2/3</td><td class="num">통과</td><td class="num"><strong>0</strong></td><td class="num">0.83</td></tr>
+              <tr><td>④ 과잉 주장: \(T\)에 "\(S\)는 Eckardt point(세 직선이 한 점에서 만나는 점)를 가진다"를 덧붙임</td><td class="num">3/3</td><td class="num">실패</td><td class="num"><strong>0</strong></td><td class="num">0.50</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="clean-list" style="margin-top:14px;">
+          <li><strong>②는 더 강하고, 거짓입니다.</strong> 각 shadow는 후보를 대수적으로 닫힌 체로 특수화한 것이므로 forward 검사는 모두 통과합니다. 그러나 \(\mathbb{R}\) 위에서 Fermat cubic \(x^3+y^3+z^3+w^3=0\)은 smooth하지만 실직선은 3개뿐입니다. 참인 shadow들이 거짓 명제를 함의할 수는 없으므로 backward 검사는 실패합니다. 가정을 빼면 명제가 강해지며, 이를 잡아내는 것은 backward 검사뿐입니다.</li>
+          <li><strong>③은 참이지만 내용이 부족합니다.</strong> 점 집합 사이의 전단사에는 위상도 structure sheaf도 없습니다. 두 underlying set의 크기가 모두 \(|k|\)이므로 \(S\)와 그런 blow-up 사이에는 언제나 전단사가 존재합니다. 따라서 \(S_3\)가 따라 나오지 않아 해당 forward 검사가 실패합니다. Scheme 동형은 점들의 전단사를 주므로 backward 검사는 통과합니다.</li>
+          <li><strong>④는 너무 많이 주장합니다.</strong> Eckardt point를 갖는 cubic surface들은 4차원 moduli space에서 divisor를 이루므로 일반적인 cubic surface에는 Eckardt point가 없습니다. Eckardt point가 18개인 Fermat cubic은 특수한 경우입니다. Shadow들로부터 추가된 주장을 유도할 수 없으므로 backward 검사는 실패합니다.</li>
+        </ul>
+        <p class="note">검사는 후보(또는 shadow들)를 가정으로 받는 짧고 고정된 Lean 증명이며, 정리 자체를 다시 증명하거나 반박하지 않습니다. 표는 이러한 명제 검사만 보여 줍니다. 실제 제출에서는 Lean 파일이 증명과 함께 컴파일되어야 하므로, 거짓인 후보 ②와 ④는 그 단계에서 이미 실패합니다.</p>
+      </div>
+
+      <div class="example-grid">
+        <div class="panel">
+          <span class="label">실제 문제 (공개 데이터)</span>
+          <p><strong>algebraic-geometry / L3 / alg_gen_L3_011.</strong> 시스템은 아래의 명제와 증명을 LaTeX로 받아, 정리를 진술하고 증명하는 Lean&nbsp;4 파일 하나를 만들어야 합니다.</p>
+          <p><em>Theorem.</em> Let \(g : X \to Y\) be a morphism of schemes over \(S\). If \(X\) is affine over \(S\) and the diagonal \(\Delta : Y \to Y \times_S Y\) is affine, then \(g\) is affine.</p>
+          <p><em>Proof.</em> The base change \(X \times_S Y \to Y\) of \(X \to S\) by \(Y \to S\) is affine, since affine morphisms are stable under base change. The morphism \((1, g) : X \to X \times_S Y\) is the base change of \(\Delta\) by \(X \times_S Y \to Y \times_S Y\), hence affine. The result follows since a composition of affine morphisms is affine.</p>
+        </div>
+        <div class="panel">
+          <span class="label">컴파일률이 놓치는 것 (논문 부록 J.3)</span>
+          <p>Projective morphism에 관한 문제에서 Claude Opus 4.6과 Claude Sonnet 4.6은 모두 다음 정의를 만들었습니다.</p>
+          <pre class="code">class IsProjective {S X : Scheme} (f : X ⟶ S) : Prop where
+  isProper : IsProper f</pre>
+          <p style="margin-top:12px;">"projective"를 "proper"로 정의한 것입니다. 파일은 컴파일되고 목표 정리는 자명해지므로 컴파일률은 이를 정답으로 셉니다. 그러나 proper morphism이 base 위의 projective space로의 closed immersion(shadow <code class="inline">HasProjectiveEmbedding</code>)을 가질 필요는 없으므로 forward 검사가 실패하고, SA-Pass는 이를 거부합니다.</p>
+        </div>
+      </div>
+

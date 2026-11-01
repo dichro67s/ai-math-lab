@@ -179,3 +179,10 @@ tr.top td { color:var(--text); }
   .two-col, .example-grid, .feature-grid, .simple-grid { grid-template-columns:minmax(0,1fr); }
 }
 .badge { width:fit-content; justify-self:start; }
+
+/* ---- Language switch and Korean typography ---- */
+.nav-links a.lang-switch { color: var(--accent-2); font-weight: 700; padding-left: 14px; border-left: 1px solid var(--line); }
+.nav-links a.lang-switch:hover { color: var(--text); }
+:lang(ko) body, html:lang(ko) body { font-family: Inter, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", ui-sans-serif, system-ui, sans-serif; }
+html:lang(ko) body { word-break: keep-all; overflow-wrap: break-word; }
+html:lang(ko) .eyebrow, html:lang(ko) .label { letter-spacing: 0.04em; }
