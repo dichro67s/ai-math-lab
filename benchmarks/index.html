@@ -126,31 +126,49 @@
       </div>
 
       <div class="panel">
-        <h3>A worked example</h3>
-        <p>Suppose the intended theorem is \(\forall x>0,\ x + 1/x \ge 2\), with two shadows: \(S_1\): for \(0 &lt; x \le 1\), \(x + 1/x \ge 2\); and \(S_2\): for \(x \ge 1\), \(x + 1/x \ge 2\).</p>
+        <h3>A worked example: the 27 lines on a cubic surface</h3>
+        <p class="note">Written for this page to illustrate the scoring. It is not a benchmark problem.</p>
+        <p><strong>Theorem \(T\).</strong> Let \(k\) be an algebraically closed field and \(S \subset \mathbb{P}^3_k\) a smooth cubic surface. Then (i) \(S\) contains exactly 27 lines; (ii) every line on \(S\) meets exactly 10 of the other 26; (iii) \(S \cong \operatorname{Bl}_{p_1,\dots,p_6}\mathbb{P}^2_k\) for six points of \(\mathbb{P}^2(k)\), no three collinear and not all six on a conic.</p>
+        <p><strong>Shadows.</strong> Each keeps the hypothesis (\(k\) algebraically closed, \(S\) a smooth cubic surface) and one conclusion. \(S_1\): \(S\) contains exactly 27 lines. \(S_2\): every line on \(S\) meets exactly 10 others. \(S_3\): \(S\) is isomorphic, as a \(k\)-scheme, to the blow-up of \(\mathbb{P}^2_k\) at six points in general position. \(T\) implies each \(S_i\), and \(S_1 \wedge S_2 \wedge S_3\) gives back \(T\), so the three shadows pin down exactly the intended theorem.</p>
+        <span class="label">The faithful statement, as a Lean-style sketch</span>
+        <pre class="code">theorem cubic_surface {k : Type*} [Field k] [IsAlgClosed k]
+    (S : CubicSurface k) (hS : S.Smooth) :
+    S.lines.ncard = 27 ∧
+    (∀ ℓ ∈ S.lines, {m ∈ S.lines | m ≠ ℓ ∧ (ℓ ∩ m).Nonempty}.ncard = 10) ∧
+    ∃ P : SixPointsInGeneralPosition k, Nonempty (S.toScheme ≅ blowUp P)</pre>
+        <p class="note">Illustrative only: Mathlib does not yet define cubic surfaces, their lines, or blow-ups.</p>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Candidate statement</th><th class="num">Forward</th><th class="num">Backward</th><th class="num">SA-Pass</th><th class="num">SA-Pass<sub>soft</sub></th></tr></thead>
             <tbody>
-              <tr><td>\(\forall x,\ 0 &lt; x \Rightarrow x + 1/x \ge 2\) (faithful)</td><td class="num">2/2</td><td class="num">pass</td><td class="num"><strong>1</strong></td><td class="num">1.00</td></tr>
-              <tr><td>\(\forall x,\ 1 \le x \Rightarrow x + 1/x \ge 2\) (domain too small)</td><td class="num">1/2</td><td class="num">pass</td><td class="num"><strong>0</strong></td><td class="num">0.75</td></tr>
-              <tr><td>\(\forall x,\ 0 &lt; x \Rightarrow x + 1/x \ge 2 \wedge (x + 1/x = 2 \Leftrightarrow x = 1)\) (extra claim)</td><td class="num">2/2</td><td class="num">fail</td><td class="num"><strong>0</strong></td><td class="num">0.50</td></tr>
+              <tr><td>① Faithful: the sketch above</td><td class="num">3/3</td><td class="num">pass</td><td class="num"><strong>1</strong></td><td class="num">1.00</td></tr>
+              <tr><td>② Dropped hypothesis: <code class="inline">[IsAlgClosed k]</code> removed, so the claim is made over every field</td><td class="num">3/3</td><td class="num">fail</td><td class="num"><strong>0</strong></td><td class="num">0.50</td></tr>
+              <tr><td>③ Wrong object: (iii) written with <code class="inline">≃</code>, a bijection of underlying point sets, instead of <code class="inline">≅</code>, an isomorphism of schemes</td><td class="num">2/3</td><td class="num">pass</td><td class="num"><strong>0</strong></td><td class="num">0.83</td></tr>
+              <tr><td>④ Extra claim: \(T\) plus "\(S\) has an Eckardt point" (three of its lines through one point)</td><td class="num">3/3</td><td class="num">fail</td><td class="num"><strong>0</strong></td><td class="num">0.50</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="note">From the ShadowBench README. All three candidates compile, so compile rate would accept all three.</p>
+        <ul class="clean-list" style="margin-top:14px;">
+          <li><strong>② is stronger, and false.</strong> Each shadow is the candidate specialized to an algebraically closed field, so every forward check passes. But over \(\mathbb{R}\) the Fermat cubic \(x^3+y^3+z^3+w^3=0\) is smooth and contains only 3 real lines. True shadows cannot imply a false statement, so the backward check fails. Dropping a hypothesis strengthens a statement, and only the backward check notices.</li>
+          <li><strong>③ is true but says less.</strong> A bijection of point sets carries no topology and no structure sheaf. One exists between \(S\) and any such blow-up, since both underlying sets have cardinality \(|k|\). So \(S_3\) does not follow and that forward check fails. The backward check passes, because an isomorphism of schemes gives a bijection of points.</li>
+          <li><strong>④ claims too much.</strong> Cubic surfaces with an Eckardt point form a divisor in the four-dimensional moduli space, so a general one has none; the Fermat cubic, with 18, is special. The shadows cannot imply the extra claim, and the backward check fails.</li>
+        </ul>
+        <p class="note">Checks are short, fixed Lean proofs that take the candidate (or the shadows) as hypotheses; they never re-prove or refute the theorem itself. The table shows only these statement checks. A full submission must also compile with a proof, so the false candidates ② and ④ would already fail at that step.</p>
       </div>
 
       <div class="example-grid">
         <div class="panel">
           <span class="label">A real task (public split)</span>
-          <p><strong>number-theory / L2 / nt_gen_L2_013.</strong> The system receives the statement below in LaTeX and must produce a single Lean&nbsp;4 file that states and proves it.</p>
-          <p>Let \(p\) be an odd prime. Then
-          \[\sum_{k=1}^{(p-1)/2}\frac{4^k}{k\binom{2k}{k}} \equiv 2\left((-1)^{(p-1)/2}-1\right)\pmod p.\]</p>
+          <p><strong>algebraic-geometry / L3 / alg_gen_L3_011.</strong> The system receives the statement and proof below in LaTeX and must produce one Lean&nbsp;4 file that states and proves the theorem.</p>
+          <p><em>Theorem.</em> Let \(g : X \to Y\) be a morphism of schemes over \(S\). If \(X\) is affine over \(S\) and the diagonal \(\Delta : Y \to Y \times_S Y\) is affine, then \(g\) is affine.</p>
+          <p><em>Proof.</em> The base change \(X \times_S Y \to Y\) of \(X \to S\) by \(Y \to S\) is affine, since affine morphisms are stable under base change. The morphism \((1, g) : X \to X \times_S Y\) is the base change of \(\Delta\) by \(X \times_S Y \to Y \times_S Y\), hence affine. The result follows since a composition of affine morphisms is affine.</p>
         </div>
         <div class="panel">
-          <span class="label">What compile rate misses</span>
-          <p>In one case from the paper, a system formalizing Brahmagupta's formula for the area of a cyclic quadrilateral took the area itself as a hypothesis and replaced "cyclic" by an angle condition. The file compiles, so compile rate counts it as correct. It is really an identity about an assumed number, not a theorem about area, and SA-Pass rejects it.</p>
+          <span class="label">What compile rate misses (paper, Appendix J.3)</span>
+          <p>For a problem about projective morphisms, Claude Opus 4.6 and Claude Sonnet 4.6 both produced this definition:</p>
+          <pre class="code">class IsProjective {S X : Scheme} (f : X ⟶ S) : Prop where
+  isProper : IsProper f</pre>
+          <p style="margin-top:12px;">It defines "projective" as "proper". The file compiles and the target theorem becomes immediate, so compile rate counts it as correct. But a proper morphism need not admit a closed immersion into projective space over the base (the shadow <code class="inline">HasProjectiveEmbedding</code>), so the forward check fails and SA-Pass rejects it.</p>
         </div>
       </div>
 
