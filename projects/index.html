@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects — SNU AI Mathematics Lab</title>
-  <meta name="description" content="Projects — SNU AI Mathematics Lab" />
+  <meta name="description" content="Research projects of the SNU AI Mathematics Lab." />
   <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
@@ -25,7 +26,7 @@
           <a href="../index.html#research">Research</a>
           <a href="../people/">People</a>
           <a href="../publications/">Publications</a>
-          <a href="../projects/">Projects</a>
+          <a href="../projects/" aria-current="page">Projects</a>
           <a href="../benchmarks/">Benchmarks</a>
           <a href="../leaderboard/">Leaderboard</a>
           <a href="../news/">News</a>
@@ -34,22 +35,54 @@
     </div>
   </div>
 
-
 <main>
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-box">
         <div class="eyebrow">Projects</div>
         <h1 style="max-width:none; font-size:clamp(2rem,3vw,3.4rem);">Projects</h1>
-        <p>Use this page for benchmark systems, formalization pipelines, theorem generation models, and demos.</p>
+        <p>What we are building now. Published work links to papers, code and data.</p>
       </div>
     </div>
   </section>
   <section>
-    <div class="container"><div class="links-grid">
-      <div class="panel"><h3>Autoformalization</h3><p>Project page placeholder.</p></div>
-      <div class="panel"><h3>Verification</h3><p>Project page placeholder.</p></div>
-      <div class="panel"><h3>Theorem generation</h3><p>Project page placeholder.</p></div>
+    <div class="container"><div class="feature-grid">
+      <article class="panel feature">
+        <span class="badge open">Published</span>
+        <h3>ShadowBench and SA-Pass</h3>
+        <p>A benchmark and metric that check whether a formal statement means what the theorem says, using hidden shadow theorems verified by Lean in both directions.</p>
+        <div class="member-links"><a href="../benchmarks/#shadowbench">Benchmark</a><a href="https://arxiv.org/abs/2608.29270">Paper</a><a href="https://github.com/ldilab/shadowbench">Code</a></div>
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">Ongoing</span>
+        <h3>ABM: Autoformalization Benchmark</h3>
+        <p>Our in-house collection of more than 1,200 Lean&nbsp;4 problems, with about 370 written by the lab from textbooks, competitions and recent arXiv papers.</p>
+        <div class="member-links"><a href="../benchmarks/#abm">Details</a></div>
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">Ongoing</span>
+        <h3>LIFT@Seoul evaluation server</h3>
+        <p>Sandboxed, two-phase evaluation of models and agents: Lean compilation first, then hidden forward and backward checks, reported by area and level.</p>
+        <div class="member-links"><a href="../benchmarks/#lift">Details</a></div>
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">Ongoing</span>
+        <h3>Alignment without a reference</h3>
+        <p>Most real formalizations have no reference to compare against. We build judges that work from the informal and formal statements alone: extract the objects and claims each one makes, match them, and look for a concrete instance that separates the two when they differ.</p>
+        
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">Ongoing</span>
+        <h3>Shadows for proofs and code</h3>
+        <p>Extending shadow checks beyond statements: to proofs (does the formal proof establish the steps the informal proof claims?) and to programs (do two programs behave the same?).</p>
+        
+      </article>
+      <article class="panel feature">
+        <span class="badge closed">Ongoing</span>
+        <h3>Formalizing a growing library</h3>
+        <p>Formalization targets drawn from the Stacks Project, where each statement builds on earlier ones, to test autoformalization as a library grows.</p>
+        
+      </article>
     </div></div>
   </section>
 </main>
@@ -59,9 +92,13 @@
       <div class="footer-box">
         <div>
           <strong>SNU AI Mathematics Lab</strong>
-          <div class="footer-note">GitHub Pages deployment package.</div>
+          <div class="footer-note">Department of Mathematical Sciences, Seoul National University · Updated 2026-11-01</div>
         </div>
-        <a class="btn secondary" href="../index.html">Home</a>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench paper</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../leaderboard/">Leaderboard</a>
+        </div>
       </div>
     </div>
   </footer>

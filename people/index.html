@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>People — SNU AI Mathematics Lab</title>
-  <meta name="description" content="People — SNU AI Mathematics Lab" />
+  <meta name="description" content="Members of the SNU AI Mathematics Lab." />
   <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
@@ -23,7 +24,7 @@
         <div class="nav-links">
           <a href="../index.html#about">About</a>
           <a href="../index.html#research">Research</a>
-          <a href="../people/">People</a>
+          <a href="../people/" aria-current="page">People</a>
           <a href="../publications/">Publications</a>
           <a href="../projects/">Projects</a>
           <a href="../benchmarks/">Benchmarks</a>
@@ -33,7 +34,6 @@
       </nav>
     </div>
   </div>
-
 
 <main>
   <section class="page-hero">
@@ -48,14 +48,54 @@
   <section>
     <div class="container">
       <div class="members-grid">
-        <div class="panel member"><div class="member-name">David Donghoon Hyeon</div><div class="member-role">Leader — Professor of Mathematical Sciences, Seoul National University</div><div class="member-role"><a href="https://www.math.snu.ac.kr/~hyeon" target="_blank">https://www.math.snu.ac.kr/~hyeon</a></div></div>
-        <div class="panel member"><div class="member-name">Sangheok Park</div><div class="member-role">Dept. of Mathematical Sciences, SNU</div></div>
-        <div class="panel member"><div class="member-name">Dongwook Cheon</div><div class="member-role">Dept. of Mathematical Sciences, SNU</div></div>
-        <div class="panel member"><div class="member-name">Sunjong Choi</div><div class="member-role">Dept. of Mathematical Sciences, SNU</div></div>
-        <div class="panel member"><div class="member-name">John Jongyoon Kim</div><div class="member-role">Dept. of Computer Science & Engineering, SNU</div></div>
-        <div class="panel member"><div class="member-name">Dr. Hojae Han</div><div class="member-role">Researcher</div></div>
-        <div class="panel member"><div class="member-name">Myeong Jae Jeon</div><div class="member-role">Dept. of Mathematics, University of Maryland</div></div>
-        <div class="panel member"><div class="member-name">Prof. Yeachan Park</div><div class="member-role">Dept. of Mathematics and Statistics, Sejong University</div></div>
+        <div class="panel member lead">
+          <img class="avatar" src="../assets/img/people/hyeon.jpg" alt="David Donghoon Hyeon" loading="lazy" />
+          <div class="member-name">David Donghoon Hyeon</div>
+          <div class="member-role">Lab lead · Professor, Department of Mathematical Sciences, Seoul National University</div>
+          <div class="member-links"><a href="https://www.math.snu.ac.kr/~hyeon">Homepage</a></div>
+        </div>
+        <div class="panel member">
+          <div class="avatar" aria-hidden="true">SP</div>
+          <div class="member-name">Sanghyeok Park</div>
+          <div class="member-role">Dept. of Mathematical Sciences, SNU</div>
+          
+        </div>
+        <div class="panel member">
+          <div class="avatar" aria-hidden="true">DC</div>
+          <div class="member-name">Dongwook Cheon</div>
+          <div class="member-role">Dept. of Mathematical Sciences, SNU</div>
+          <div class="member-links"><a href="https://github.com/dongwook0826">GitHub</a><a href="https://dongwook0826.github.io">Blog</a></div>
+        </div>
+        <div class="panel member">
+          <div class="avatar" aria-hidden="true">SC</div>
+          <div class="member-name">Sunjong Choe</div>
+          <div class="member-role">Dept. of Mathematical Sciences, SNU</div>
+          
+        </div>
+        <div class="panel member">
+          <img class="avatar" src="../assets/img/people/kim-jongyoon.jpg" alt="John Jongyoon Kim" loading="lazy" />
+          <div class="member-name">John Jongyoon Kim</div>
+          <div class="member-role">Integrated M.S./Ph.D. student, Interdisciplinary Program in Artificial Intelligence, SNU</div>
+          <div class="member-links"><a href="https://ldilab.github.io/person/kimjy/">Profile</a><a href="https://scholar.google.com/citations?user=7TKlQHwAAAAJ">Scholar</a></div>
+        </div>
+        <div class="panel member">
+          <img class="avatar" src="../assets/img/people/han-hojae.jpg" alt="Dr. Hojae Han" loading="lazy" />
+          <div class="member-name">Dr. Hojae Han</div>
+          <div class="member-role">Researcher, ETRI · Ph.D., Computer Science and Engineering, SNU (2025)</div>
+          
+        </div>
+        <div class="panel member">
+          <div class="avatar" aria-hidden="true">MJ</div>
+          <div class="member-name">Myeong Jae Jeon</div>
+          <div class="member-role">Graduate student, Dept. of Mathematics, University of Maryland</div>
+          
+        </div>
+        <div class="panel member">
+          <img class="avatar" src="../assets/img/people/park-yeachan.jpg" alt="Prof. Yeachan Park" loading="lazy" />
+          <div class="member-name">Prof. Yeachan Park</div>
+          <div class="member-role">Assistant Professor, Dept. of Mathematics and Statistics, Sejong University</div>
+          <div class="member-links"><a href="https://yechanp.github.io/site/">Homepage</a><a href="https://scholar.google.com/citations?user=G-EEuLQAAAAJ">Scholar</a></div>
+        </div>
       </div>
     </div>
   </section>
@@ -66,9 +106,13 @@
       <div class="footer-box">
         <div>
           <strong>SNU AI Mathematics Lab</strong>
-          <div class="footer-note">GitHub Pages deployment package.</div>
+          <div class="footer-note">Department of Mathematical Sciences, Seoul National University · Updated 2026-11-01</div>
         </div>
-        <a class="btn secondary" href="../index.html">Home</a>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench paper</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../leaderboard/">Leaderboard</a>
+        </div>
       </div>
     </div>
   </footer>

@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leaderboard — SNU AI Mathematics Lab</title>
-  <meta name="description" content="Leaderboard — SNU AI Mathematics Lab" />
+  <meta name="description" content="ShadowBench leaderboard: compile rate and SA-Pass for 41 systems on 178 problems." />
   <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
@@ -27,26 +28,86 @@
           <a href="../publications/">Publications</a>
           <a href="../projects/">Projects</a>
           <a href="../benchmarks/">Benchmarks</a>
-          <a href="../leaderboard/">Leaderboard</a>
+          <a href="../leaderboard/" aria-current="page">Leaderboard</a>
           <a href="../news/">News</a>
         </div>
       </nav>
     </div>
   </div>
 
-
 <main>
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-box">
         <div class="eyebrow">Leaderboard</div>
-        <h1 style="max-width:none; font-size:clamp(2rem,3vw,3.4rem);">Leaderboard</h1>
-        <p>A clean table is often the best starting point for a public benchmark leaderboard.</p>
+        <h1 style="max-width:none; font-size:clamp(2rem,3vw,3.4rem);">ShadowBench leaderboard</h1>
+        <p>Results on the 178-problem ShadowBench test split, sorted by SA-Pass. Mirrored from the <a href="https://ldilab.github.io/shadowbench-leaderboard/">public leaderboard</a>, as of <!-- LB:ASOF:START -->2026-11-01<!-- LB:ASOF:END -->.</p>
       </div>
     </div>
   </section>
+
   <section>
-    <div class="container"><div class="panel table-wrap"><table><thead><tr><th>Rank</th><th>System</th><th>Score</th><th>Notes</th></tr></thead><tbody><tr><td>1</td><td>Coming soon</td><td>—</td><td>Populate from benchmark results.</td></tr></tbody></table></div></div>
+    <div class="container stack">
+      <div class="feature-grid">
+        <div class="panel"><h3>Compile</h3><p>Share of problems whose generated Lean code compiles on its own, with no <code class="inline">sorry</code>.</p></div>
+        <div class="panel"><h3>SA-Pass<sub>soft</sub></h3><p>Partial credit: half for the share of forward checks passed, half for the backward check. Non-compiling outputs score zero.</p></div>
+        <div class="panel"><h3>SA-Pass</h3><p>Share of problems that compile and pass every forward and backward check: the statement means what the theorem says.</p></div>
+      </div>
+
+      <div class="panel table-wrap">
+        <table>
+          <thead><tr><th class="num">#</th><th>System</th><th>Type</th><th class="num">Compile</th><th class="num">SA-Pass<sub>soft</sub></th><th class="num">SA-Pass</th><th class="num">L3 SA-Pass</th><th>Source</th></tr></thead>
+          <tbody><!-- LB:ROWS:START -->
+          <tr class="top"><td class="num">1</td><td>Codex (GPT-6.1 Sol) + Numina</td><td>Agentic</td><td class="num">91.0</td><td class="num">29.2</td><td class="num"><strong>18.5</strong></td><td class="num">7.7</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Codex with GPT-6.1 Sol, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">After paper · 2026-10-20</span></td></tr>
+          <tr class="top"><td class="num">2</td><td>Codex (GPT-6 Luna) + Numina</td><td>Agentic</td><td class="num">79.2</td><td class="num">28.1</td><td class="num"><strong>18.0</strong></td><td class="num">7.7</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Codex with GPT-6 Luna, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">After paper · 2026-10-20</span></td></tr>
+          <tr class="top"><td class="num">3</td><td>Claude Code (Opus 5.5) + Numina</td><td>Agentic</td><td class="num">93.8</td><td class="num">28.1</td><td class="num"><strong>16.9</strong></td><td class="num">15.4</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Claude Code with Claude Opus 5.5, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">After paper · 2026-10-20</span></td></tr>
+          <tr><td class="num">4</td><td>Claude Code (Sonnet 5.5) + Numina</td><td>Agentic</td><td class="num">91.0</td><td class="num">25.8</td><td class="num"><strong>15.2</strong></td><td class="num">15.4</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Claude Code with Claude Sonnet 5.5, with Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">After paper · 2026-10-20</span></td></tr>
+          <tr><td class="num">5</td><td>Claude Code (Opus 4.8) + Numina</td><td>Agentic</td><td class="num">61.8</td><td class="num">18.3</td><td class="num"><strong>11.2</strong></td><td class="num">7.7</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">6</td><td>Claude Code (Opus 5.5)</td><td>Agentic</td><td class="num">48.3</td><td class="num">16.3</td><td class="num"><strong>10.7</strong></td><td class="num">7.7</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Claude Code with Claude Opus 5.5, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">After paper · 2026-10-20</span></td></tr>
+          <tr><td class="num">7</td><td>Codex (GPT-5.4) + Numina</td><td>Agentic</td><td class="num">55.6</td><td class="num">16.9</td><td class="num"><strong>10.1</strong></td><td class="num">7.7</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">8</td><td>Claude Code (Opus 4.6) + Numina</td><td>Agentic</td><td class="num">47.2</td><td class="num">15.7</td><td class="num"><strong>9.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">9</td><td>Claude Code (Sonnet 5.5)</td><td>Agentic</td><td class="num">29.8</td><td class="num">8.7</td><td class="num"><strong>4.5</strong></td><td class="num">7.7</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Claude Code with Claude Sonnet 5.5, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">After paper · 2026-10-20</span></td></tr>
+          <tr><td class="num">10</td><td>Codex (GPT-6.1 Sol)</td><td>Agentic</td><td class="num">33.7</td><td class="num">8.1</td><td class="num"><strong>2.8</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Codex with GPT-6.1 Sol, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">After paper · 2026-10-20</span></td></tr>
+          <tr><td class="num">11</td><td>Claude Code (Opus 4.8)</td><td>Agentic</td><td class="num">20.2</td><td class="num">5.1</td><td class="num"><strong>2.8</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">12</td><td>Codex (GPT-6 Luna)</td><td>Agentic</td><td class="num">32.0</td><td class="num">5.3</td><td class="num"><strong>2.2</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Agentic: Codex with GPT-6 Luna, without Numina-Lean-Agent. Scored on the 178-problem test split; algebra/L2/alg_gen_L2_006 has no record and counts as a failure.">After paper · 2026-10-20</span></td></tr>
+          <tr><td class="num">13</td><td>Codex (GPT-5.4)</td><td>Agentic</td><td class="num">16.9</td><td class="num">3.4</td><td class="num"><strong>2.2</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">14</td><td>Claude Fable 5.1</td><td>Model · closed</td><td class="num">28.7</td><td class="num">7.9</td><td class="num"><strong>1.1</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">After paper · 2026-10-14</span></td></tr>
+          <tr><td class="num">15</td><td>GPT-6 Astra</td><td>Model · closed</td><td class="num">26.4</td><td class="num">6.8</td><td class="num"><strong>0.6</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">After paper · 2026-10-14</span></td></tr>
+          <tr><td class="num">16</td><td>Claude Code (Qwen3 235B) + Numina</td><td>Agentic</td><td class="num">6.7</td><td class="num">0.8</td><td class="num"><strong>0.6</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">17</td><td>Claude Code (Qwen3 235B)</td><td>Agentic</td><td class="num">5.1</td><td class="num">0.8</td><td class="num"><strong>0.6</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">18</td><td>GPT-6 Luna</td><td>Model · closed</td><td class="num">23.6</td><td class="num">5.2</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">After paper · 2026-10-14</span></td></tr>
+          <tr><td class="num">19</td><td>Claude Opus 5.5</td><td>Model · closed</td><td class="num">20.2</td><td class="num">5.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">After paper · 2026-10-14</span></td></tr>
+          <tr><td class="num">20</td><td>GPT-6 Sol</td><td>Model · closed</td><td class="num">38.2</td><td class="num">4.8</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">After paper · 2026-10-14</span></td></tr>
+          <tr><td class="num">21</td><td>Claude Sonnet 5.5</td><td>Model · closed</td><td class="num">9.6</td><td class="num">1.9</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge open" title="Run after the paper, not in Table 3. Direct prompting with 128k max output tokens and reasoning effort low (the paper rows used 2048/8192 tokens). Scored on the hosted evaluator on 2026-10-14; algebra/L2/alg_gen_L2_006 is not on the evaluator and counts as a failure.">After paper · 2026-10-14</span></td></tr>
+          <tr><td class="num">22</td><td>Claude Code (Opus 4.6)</td><td>Agentic</td><td class="num">4.5</td><td class="num">1.4</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">23</td><td>GPT-5.4 mini</td><td>Model · closed</td><td class="num">9.0</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">24</td><td>GPT-5.4</td><td>Model · closed</td><td class="num">3.4</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">25</td><td>GPT-OSS-20B</td><td>Model · open</td><td class="num">2.8</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">26</td><td>Claude Haiku 4.5</td><td>Model · closed</td><td class="num">0.6</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">27</td><td>GPT-OSS-120B</td><td>Model · open</td><td class="num">0.6</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">28</td><td>Gemini 2.5 Flash</td><td>Model · closed</td><td class="num">0.6</td><td class="num">0.3</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">29</td><td>GPT-5.4 nano</td><td>Model · closed</td><td class="num">6.7</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">30</td><td>Gemini 3.1 Pro</td><td>Model · closed</td><td class="num">1.7</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">31</td><td>Claude Opus 4.6</td><td>Model · closed</td><td class="num">1.1</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">32</td><td>Claude Sonnet 4.6</td><td>Model · closed</td><td class="num">0.6</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">33</td><td>DeepSeek R1 0528</td><td>Model · open</td><td class="num">0.6</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">34</td><td>Kimina 7B → 8B</td><td>Lean prover</td><td class="num">0.6</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">35</td><td>DeepSeek V3.2</td><td>Model · open</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">36</td><td>Goedel 8B → 32B</td><td>Lean prover</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">37</td><td>Goedel 8B → 8B</td><td>Lean prover</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">38</td><td>Llama 3.1 70B</td><td>Model · open</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">39</td><td>Llama 3.1 8B</td><td>Model · open</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">40</td><td>Qwen3 235B</td><td>Model · open</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <tr><td class="num">41</td><td>Qwen3-coder</td><td>Model · open</td><td class="num">0.0</td><td class="num">0.0</td><td class="num"><strong>0.0</strong></td><td class="num">0.0</td><td><span class="badge closed">Paper</span></td></tr>
+          <!-- LB:ROWS:END --></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <p class="note">All values are percentages over the same 178 problems (<!-- LB:COUNT:START -->41<!-- LB:COUNT:END --> systems). "Paper" rows are Table&nbsp;3 of the <a href="https://arxiv.org/abs/2608.29270">ShadowBench paper</a>. "After paper" rows were run later on the same problems: agentic systems on 2026-10-20, and direct prompting with up to 128k output tokens on 2026-10-14 (the paper used 2k–8k). In those runs one problem has no record and counts as a failure. "+ Numina" means the agent could use Numina-Lean-Agent's Lean tools. L3 is the 13 research-level problems.</p>
+        <p class="note">To submit a system, use the <a href="https://ldilab.github.io/shadowbench-leaderboard/">public leaderboard</a>.</p>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -55,9 +116,13 @@
       <div class="footer-box">
         <div>
           <strong>SNU AI Mathematics Lab</strong>
-          <div class="footer-note">GitHub Pages deployment package.</div>
+          <div class="footer-note">Department of Mathematical Sciences, Seoul National University · Updated 2026-11-01</div>
         </div>
-        <a class="btn secondary" href="../index.html">Home</a>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench paper</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../leaderboard/">Leaderboard</a>
+        </div>
       </div>
     </div>
   </footer>

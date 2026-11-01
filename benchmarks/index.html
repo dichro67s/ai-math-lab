@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benchmarks — SNU AI Mathematics Lab</title>
-  <meta name="description" content="Benchmarks — SNU AI Mathematics Lab" />
+  <meta name="description" content="ShadowBench, the ABM autoformalization benchmark and the LIFT@Seoul evaluation server." />
   <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 
@@ -26,7 +31,7 @@
           <a href="../people/">People</a>
           <a href="../publications/">Publications</a>
           <a href="../projects/">Projects</a>
-          <a href="../benchmarks/">Benchmarks</a>
+          <a href="../benchmarks/" aria-current="page">Benchmarks</a>
           <a href="../leaderboard/">Leaderboard</a>
           <a href="../news/">News</a>
         </div>
@@ -34,22 +39,178 @@
     </div>
   </div>
 
-
 <main>
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-box">
         <div class="eyebrow">Benchmarks</div>
         <h1 style="max-width:none; font-size:clamp(2rem,3vw,3.4rem);">Benchmarks</h1>
-        <p>Describe tasks, datasets, evaluation protocol, submission format, and baseline systems here.</p>
+        <p>We build benchmarks that test whether AI systems formalize mathematics faithfully, not only whether their Lean code compiles.</p>
       </div>
     </div>
   </section>
-  <section>
-    <div class="container"><div class="simple-grid">
-      <div class="panel"><h3>Benchmark overview</h3><p>Task definitions, data sources, metrics, and submission instructions.</p></div>
-      <div class="panel"><h3>Datasets</h3><ul class="clean-list"><li>Formalization benchmark</li><li>Problem solving benchmark</li><li>Verification benchmark</li></ul></div>
-    </div></div>
+
+  <section id="shadowbench">
+    <div class="container stack">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">EMNLP 2026</div>
+          <h2>ShadowBench</h2>
+        </div>
+        <p>A Lean&nbsp;4 full-autoformalization benchmark of 178 postgraduate- to research-level problems across eight areas of mathematics, scored with SA-Pass.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="panel">
+          <h3>The problem with compile rate</h3>
+          <p>
+            A model's Lean statement can compile and still be wrong: it may weaken the conclusion, drop a
+            hypothesis, or assume what it should prove. Compile rate counts all of these as correct.
+            Comparing against one reference formalization has the opposite flaw: it rejects correct
+            statements written in a different but equivalent way.
+          </p>
+          <p>
+            SA-Pass (Semantic Alignment Pass) takes the idea of unit tests from code generation. For each
+            problem, experts fix a small set of auxiliary Lean statements, called <strong>shadows</strong>,
+            that together characterize the intended theorem. The shadows stay hidden on the evaluation
+            server, and Lean grades any submission against them automatically.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Resources</h3>
+          <ul class="clean-list">
+            <li><a href="https://arxiv.org/abs/2608.29270">Paper (arXiv 2608.29270)</a></li>
+            <li><a href="https://github.com/ldilab/shadowbench">Code (GitHub)</a></li>
+            <li><a href="https://huggingface.co/datasets/DicoTiar/ShadowBench">Dataset (Hugging Face, CC BY 4.0)</a></li>
+            <li><a href="https://ldilab.github.io/shadowbench-leaderboard/">Public leaderboard and submissions</a></li>
+            <li><a href="https://www.codabench.org/competitions/16295/">ICML 2026 AI for Math Challenge, Track 4</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat"><strong>178</strong><span>problems: 113 at level&nbsp;1, 52 at level&nbsp;2, 13 at level&nbsp;3 (research level)</span></div>
+        <div class="stat"><strong>8</strong><span>areas of mathematics</span></div>
+        <div class="stat"><strong>706</strong><span>shadows: 513 forward and 193 backward checks</span></div>
+        <div class="stat"><strong>98.8%</strong><span>agreement with expert judgments (precision 1.000, recall 0.930)</span></div>
+      </div>
+
+      <div class="two-col">
+        <div class="panel">
+          <h3>How SA-Pass scores a statement</h3>
+          <ol class="steps">
+            <li><span><strong>Compile.</strong> The generated Lean file must compile on its own against Mathlib, with no <code class="inline">sorry</code>.</span></li>
+            <li><span><strong>Forward checks.</strong> Lean must prove that the statement implies every shadow. This catches weakened or partial statements.</span></li>
+            <li><span><strong>Backward check.</strong> Lean must prove that the shadows together imply the statement. This catches extra conclusions and dropped hypotheses.</span></li>
+            <li><span><strong>Score.</strong> SA-Pass is 1 only if all checks pass. SA-Pass<sub>soft</sub> gives partial credit: half for the share of forward checks passed, half for the backward check.</span></li>
+          </ol>
+        </div>
+        <div class="panel">
+          <h3>Problems by area</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Area</th><th class="num">Problems</th></tr></thead>
+              <tbody>
+                <tr><td>Analysis</td><td class="num">28</td></tr>
+                <tr><td>Algebra</td><td class="num">26</td></tr>
+                <tr><td>Topology</td><td class="num">25</td></tr>
+                <tr><td>Geometry</td><td class="num">24</td></tr>
+                <tr><td>Algebraic geometry</td><td class="num">22</td></tr>
+                <tr><td>Probability</td><td class="num">20</td></tr>
+                <tr><td>Number theory</td><td class="num">19</td></tr>
+                <tr><td>Combinatorics</td><td class="num">14</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>A worked example</h3>
+        <p>Suppose the intended theorem is \(\forall x>0,\ x + 1/x \ge 2\), with two shadows: \(S_1\): for \(0 &lt; x \le 1\), \(x + 1/x \ge 2\); and \(S_2\): for \(x \ge 1\), \(x + 1/x \ge 2\).</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Candidate statement</th><th class="num">Forward</th><th class="num">Backward</th><th class="num">SA-Pass</th><th class="num">SA-Pass<sub>soft</sub></th></tr></thead>
+            <tbody>
+              <tr><td>\(\forall x,\ 0 &lt; x \Rightarrow x + 1/x \ge 2\) (faithful)</td><td class="num">2/2</td><td class="num">pass</td><td class="num"><strong>1</strong></td><td class="num">1.00</td></tr>
+              <tr><td>\(\forall x,\ 1 \le x \Rightarrow x + 1/x \ge 2\) (domain too small)</td><td class="num">1/2</td><td class="num">pass</td><td class="num"><strong>0</strong></td><td class="num">0.75</td></tr>
+              <tr><td>\(\forall x,\ 0 &lt; x \Rightarrow x + 1/x \ge 2 \wedge (x + 1/x = 2 \Leftrightarrow x = 1)\) (extra claim)</td><td class="num">2/2</td><td class="num">fail</td><td class="num"><strong>0</strong></td><td class="num">0.50</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">From the ShadowBench README. All three candidates compile, so compile rate would accept all three.</p>
+      </div>
+
+      <div class="example-grid">
+        <div class="panel">
+          <span class="label">A real task (public split)</span>
+          <p><strong>number-theory / L2 / nt_gen_L2_013.</strong> The system receives the statement below in LaTeX and must produce a single Lean&nbsp;4 file that states and proves it.</p>
+          <p>Let \(p\) be an odd prime. Then
+          \[\sum_{k=1}^{(p-1)/2}\frac{4^k}{k\binom{2k}{k}} \equiv 2\left((-1)^{(p-1)/2}-1\right)\pmod p.\]</p>
+        </div>
+        <div class="panel">
+          <span class="label">What compile rate misses</span>
+          <p>In one case from the paper, a system formalizing Brahmagupta's formula for the area of a cyclic quadrilateral took the area itself as a hypothesis and replaced "cyclic" by an angle condition. The file compiles, so compile rate counts it as correct. It is really an identity about an assumed number, not a theorem about area, and SA-Pass rejects it.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>What we found</h3>
+        <ul class="clean-list">
+          <li><strong>Compilation overestimates alignment.</strong> In the paper, the best system (Claude Code with Opus 4.8 and Numina-Lean-Agent) compiles 61.8% of problems but reaches 11.2% SA-Pass. Newer systems compile over 90% and reach at most 18.5%.</li>
+          <li><strong>Lean tooling helps compile more than meaning.</strong> Adding Numina-Lean-Agent raised Opus&nbsp;4.8's compile rate by 41.6 points but its SA-Pass by only 8.4.</li>
+          <li><strong>Direct prompting is far behind.</strong> Every closed, open and Lean-specialized model in the paper scored 0.0 SA-Pass when prompted directly.</li>
+          <li><strong>SA-Pass matches expert judgment.</strong> On compile-passed outputs from six agentic configurations, SA-Pass agrees with experts on 98.8% of cases (BEq+: 80.6%; compile check: 17.8%).</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>How it was built</h3>
+        <p>Problems come from graduate textbooks (Lee, <em>Introduction to Smooth Manifolds</em>; Stein–Shakarchi, <em>Real Analysis</em>; Cox–Little–O'Shea, <em>Ideals, Varieties, and Algorithms</em>; Boyd–Vandenberghe, <em>Convex Optimization</em>; Wunsch, <em>Complex Variables with Applications</em>; EGA; <em>Proofs from THE BOOK</em>), the Stacks Project, theorems missing from Wiedijk's 1000+ list, the "PRIMES is in P" paper and Mathlib&nbsp;4. A language model drafts each problem's shadows, and for 85% of problems the first draft is already complete. Mathematicians review every set, and Lean checks that the shadows together characterize the reference statement. Building the checkers takes about ten minutes per problem on average.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="abm">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">In development</div>
+          <h2>ABM: Autoformalization Benchmark</h2>
+        </div>
+        <p>Our larger in-house collection, from which ShadowBench was drawn.</p>
+      </div>
+      <div class="simple-grid">
+        <div class="panel">
+          <h3>What it contains</h3>
+          <p>More than 1,200 Lean&nbsp;4 problems. About 370 were written by the lab across ten areas, from graduate textbooks, the KMS College Mathematics Competition and 38 recent arXiv papers. The rest are miniF2F and ProofNet problems, re-checked under a current Lean and Mathlib. Lab-written problems come with reference Lean files and, for many, hidden forward and backward checkers.</p>
+        </div>
+        <div class="panel">
+          <h3>Levels</h3>
+          <ul class="clean-list">
+            <li><strong>L1:</strong> definitions and statements, no proofs.</li>
+            <li><strong>L2:</strong> statements with short, direct proofs.</li>
+            <li><strong>L3:</strong> clusters of definitions and lemmas leading to a main theorem.</li>
+            <li><strong>L4:</strong> research-level results.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lift">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Evaluation server</div>
+          <h2>LIFT@Seoul</h2>
+        </div>
+        <p>Lean4 Inference and Formalization Test @ Seoul National University.</p>
+      </div>
+      <div class="panel">
+        <p>LIFT@Seoul is the lab's evaluation server. It sends each problem to a model or agent, compiles the returned Lean file in a network-isolated sandbox against a pinned Lean and Mathlib, and rejects files that use <code class="inline">sorry</code>, add axioms or change the target statement. It then runs the hidden forward and backward checkers and reports results by area and level. It is currently open to lab members and collaborators.</p>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -58,9 +219,13 @@
       <div class="footer-box">
         <div>
           <strong>SNU AI Mathematics Lab</strong>
-          <div class="footer-note">GitHub Pages deployment package.</div>
+          <div class="footer-note">Department of Mathematical Sciences, Seoul National University · Updated 2026-11-01</div>
         </div>
-        <a class="btn secondary" href="../index.html">Home</a>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench paper</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../leaderboard/">Leaderboard</a>
+        </div>
       </div>
     </div>
   </footer>

@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Publications — SNU AI Mathematics Lab</title>
-  <meta name="description" content="Publications — SNU AI Mathematics Lab" />
+  <meta name="description" content="Publications of the SNU AI Mathematics Lab." />
   <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
@@ -24,7 +25,7 @@
           <a href="../index.html#about">About</a>
           <a href="../index.html#research">Research</a>
           <a href="../people/">People</a>
-          <a href="../publications/">Publications</a>
+          <a href="../publications/" aria-current="page">Publications</a>
           <a href="../projects/">Projects</a>
           <a href="../benchmarks/">Benchmarks</a>
           <a href="../leaderboard/">Leaderboard</a>
@@ -34,19 +35,46 @@
     </div>
   </div>
 
-
 <main>
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-box">
         <div class="eyebrow">Publications</div>
         <h1 style="max-width:none; font-size:clamp(2rem,3vw,3.4rem);">Publications</h1>
-        <p>Add papers, preprints, talks, and links here. The structure is ready for year-by-year lists.</p>
+        <p>Papers from the lab. Lab members are in bold.</p>
       </div>
     </div>
   </section>
   <section>
-    <div class="container"><div class="panel"><h3>Selected papers</h3><ul class="clean-list"><li>Coming soon</li><li>Replace with BibTeX-generated entries or manual citations.</li></ul></div></div>
+    <div class="container stack">
+      <div class="panel">
+        <h3>2026</h3>
+        <div class="pub">
+          <div class="pub-title">ShadowBench: Toward Reliable Automatic Evaluation of Semantic Alignment in Autoformalization</div>
+          <div class="pub-authors"><strong>Hojae Han</strong>*, <strong>Jongyoon Kim</strong>*, <strong>Sanghyeok Park</strong>*, <strong>Dongwook Cheon</strong>, <strong>Yeachan Park</strong>, <strong>Myeong Jae Jeon</strong>, <strong>Sunjong Choe</strong>, Soonho Kong, Wonseok Hur, Seung-won Hwang†, <strong>Donghoon Hyeon</strong>†</div>
+          <div class="pub-venue"><em>EMNLP 2026</em> · arXiv:2608.29270 · * equal contribution, † corresponding authors</div>
+          <p style="margin:6px 0 0;">Introduces SA-Pass, which scores a formal statement by Lean-checked implications to and from hidden auxiliary theorems (shadows), and ShadowBench, 178 postgraduate- to research-level Lean&nbsp;4 problems. SA-Pass agrees with expert judgments on 98.8% of cases; the best system in the paper compiles 61.8% but reaches 11.2% SA-Pass.</p>
+          <div class="pub-links">
+            <a class="badge closed" href="https://arxiv.org/abs/2608.29270">arXiv</a>
+            <a class="badge closed" href="https://github.com/ldilab/shadowbench">Code</a>
+            <a class="badge closed" href="https://huggingface.co/datasets/DicoTiar/ShadowBench">Dataset</a>
+            <a class="badge closed" href="https://ldilab.github.io/shadowbench-leaderboard/">Leaderboard</a>
+          </div>
+          <details style="margin-top:8px;"><summary class="note" style="cursor:pointer;">BibTeX</summary><pre class="code" style="margin-top:8px;">@inproceedings{han2026shadowbench,
+  title     = {ShadowBench: Toward Reliable Automatic Evaluation of
+               Semantic Alignment in Autoformalization},
+  author    = {Han, Hojae and Kim, Jongyoon and Park, Sanghyeok and
+               Cheon, Dongwook and Park, Yeachan and Jeon, Myeong Jae and
+               Choe, Sunjong and Kong, Soonho and Hur, Wonseok and
+               Hwang, Seung-won and Hyeon, Donghoon},
+  booktitle = {Proceedings of the 2026 Conference on Empirical Methods
+               in Natural Language Processing (EMNLP)},
+  year      = {2026},
+  note      = {arXiv:2608.29270}
+}</pre></details>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -55,9 +83,13 @@
       <div class="footer-box">
         <div>
           <strong>SNU AI Mathematics Lab</strong>
-          <div class="footer-note">GitHub Pages deployment package.</div>
+          <div class="footer-note">Department of Mathematical Sciences, Seoul National University · Updated 2026-11-01</div>
         </div>
-        <a class="btn secondary" href="../index.html">Home</a>
+        <div class="member-links">
+          <a href="https://arxiv.org/abs/2608.29270">ShadowBench paper</a>
+          <a href="https://github.com/ldilab/shadowbench">Code</a>
+          <a href="../leaderboard/">Leaderboard</a>
+        </div>
       </div>
     </div>
   </footer>
