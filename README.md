@@ -9,6 +9,7 @@ Live: https://dichro67s.github.io/ai-math-lab/
 - `index.html`: home (overview, highlights, research directions, latest news)
 - `people/`: members, with photos in `assets/img/people/` (square JPEG, 320×320)
 - `publications/`: papers, newest year first
+- `papers/`: PDFs of the lab's papers and manuscripts, named `<author>-<year>-<topic>.pdf`
 - `projects/`: current projects
 - `benchmarks/`: ShadowBench, the ABM benchmark and the LIFT@Seoul evaluation server
 - `leaderboard/`: ShadowBench results

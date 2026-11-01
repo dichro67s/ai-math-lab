@@ -8,6 +8,10 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 
@@ -71,6 +75,23 @@
                in Natural Language Processing (EMNLP)},
   year      = {2026},
   note      = {arXiv:2608.29270}
+}</pre></details>
+        </div>
+        <div class="pub">
+          <div class="pub-title">Formalizing Faugère's F<sub>4</sub> Algorithm in Lean&nbsp;4</div>
+          <div class="pub-authors"><strong>Dongwook Cheon</strong></div>
+          <div class="pub-venue"><em>Manuscript</em> · October 2026</div>
+          <p style="margin:6px 0 0;">A Lean&nbsp;4 formalization of Faugère's F<sub>4</sub> algorithm over Mathlib's multivariate polynomials. For every finite set \(F\) of nonzero polynomials over a field in finitely many variables, the procedure terminates and returns a finite set \(G\) with \(\langle G\rangle = \langle F\rangle\) and \(\langle \mathrm{LM}(g) : g \in G\rangle = \mathrm{in}_\prec(\langle F\rangle)\), so \(G\) is a Gröbner basis (theorem <code class="inline">F4_groebner</code>). Symbolic preprocessing and Gaussian elimination work directly on finite sets of polynomials; termination uses a lexicographic well-founded relation. The checked results use only Lean's three standard axioms, with no <code class="inline">sorry</code>.</p>
+          <div class="pub-links">
+            <a class="badge closed" href="../papers/cheon-2026-f4-lean4.pdf">PDF</a>
+            <a class="badge closed" href="https://github.com/dongwook0826/FaugereF4">Code</a>
+          </div>
+          <details style="margin-top:8px;"><summary class="note" style="cursor:pointer;">BibTeX</summary><pre class="code" style="margin-top:8px;">@unpublished{cheon2026f4,
+  title  = {Formalizing Faug{\`e}re's {F}$_4$ Algorithm in {Lean} 4},
+  author = {Cheon, Dongwook},
+  note   = {Manuscript},
+  year   = {2026},
+  url    = {https://github.com/dongwook0826/FaugereF4}
 }</pre></details>
         </div>
       </div>
